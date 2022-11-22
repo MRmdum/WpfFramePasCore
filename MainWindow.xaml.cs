@@ -17,8 +17,12 @@ using System.Data;
 using System.Configuration;
 using System.ComponentModel;
 
+//Sql management
 using MySql.Data;
 using MySql.Data.MySqlClient;
+///
+
+using WpfFramePasCore.UserControl;
 
 namespace WpfFramePasCore
 {
@@ -34,14 +38,9 @@ namespace WpfFramePasCore
         {
             
             InitializeComponent();
-        }
-        private void Change_Click(object sender, RoutedEventArgs e)
-        {
-            Window1 win = new Window1();
-            Visibility = Visibility.Hidden;
-            win.Show();
-        }
+        }      
         
+
         private void btnloaddata_Click(object sender, RoutedEventArgs e) {
 
             string server = "localhost";
@@ -76,7 +75,7 @@ namespace WpfFramePasCore
                 adp.Fill(dt);
                 //MessageBox.Show(ds.ToString());
 
-                dataGridCustomers.DataContext = ds;
+                //dataGridCustomers.DataContext = ds;
 
             }
             catch (MySqlException ex)
@@ -117,11 +116,4 @@ namespace WpfFramePasCore
         public event PropertyChangedEventHandler PropertyChanged;
     }
     
-    public partial class Window1 : Window
-    {
-        public Window1()
-        {
-
-        }
-    }
 }
