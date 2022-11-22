@@ -89,7 +89,9 @@ namespace WpfFramePasCore
 
         private void HideButtonOnClick(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show(Convert.ToString(GridVisibility));
             GridVisibility = true;
+            MessageBox.Show(Convert.ToString(GridVisibility));
         }
         public bool GridVisibility
         {
@@ -101,7 +103,7 @@ namespace WpfFramePasCore
             {
                 gridVisibility = value;
 
-                NotifyPropertyChanged("GridVisibility");
+                NotifyPropertyChanged("gridVisibility");
             }
         }
 
