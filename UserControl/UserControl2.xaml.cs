@@ -13,6 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using MySql.Data;
+using MySql.Data.MySqlClient;
+using System.Data;
+using System.Configuration;
+
 namespace WpfFramePasCore.UserControl
 {
     /// <summary>
@@ -40,6 +45,46 @@ namespace WpfFramePasCore.UserControl
 
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
             mainWindow.DataContext = viewModel;
+        }
+        private void textChangedEventHandler(object sender, RoutedEventArgs e)
+        {
+            string server = "localhost";
+            string database = "cookies";
+            string user = "root";
+            string password = "ABCD1234";
+            //string port = "3306";
+            string connectionString = "server=" + server + ";" +
+                                        "uid=" + user + ";" +
+                                        "pwd=" + password + ";" +
+                                         "database=" + database + ";";
+
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            try
+            {
+                conn.Open();
+                string command = "Select Id,name,main_adress,tel,email from clients where name = 'test2ofofo';";
+                MySqlCommand cmd = new MySqlCommand(command, conn);
+
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+
+                ///////
+                //MessageBox.Show(cmd.ToString());
+                //adp.SelectCommand = cmd;
+
+                //var build = new MySqlCommandBuilder(adp);
+                DataSet ds = new DataSet();
+
+                adp.Fill(ds, "LoadDataBinding");
+                //MessageBox.Show(ds.ToString());
+
+                dataGridCustomers.DataContext = ds;
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            conn.Close();
         }
     }
 }

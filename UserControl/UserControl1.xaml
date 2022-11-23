@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel>
             <Label Content="1. UserControl"></Label>
-            <Button Content="Add" Width="120" Height="38" Click="Button_Click1" Margin="526,282,154,0" />
+            <Button Content="Add" Width="120" Height="38" Click="Button_Click1" Margin="640,350,0,0" />
         </StackPanel>
     </Grid>
 </UserControl>

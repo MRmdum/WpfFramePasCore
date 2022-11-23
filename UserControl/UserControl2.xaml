@@ -8,8 +8,20 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <Label Content="2. UserControl"></Label>
-            <Button Content="Show" Width="120" Height="38" Click="Button_Click2" ></Button>
+            <Label Content="New Client"></Label>
+            <TextBox Height="16" TextWrapping="Wrap" Margin="251,0,425,0"/>
+            <Button Content="Show" Width="120" Height="38" Click="Button_Click2" Margin="640,350,0,0" />
+            <TextBox Height="23" TextWrapping="Wrap" TextChanged="textChangedEventHandler"/>
+            <Button Content="refreshDb" Width="120" Height="38" Click="textChangedEventHandler" Margin="600,-200,0,0" />
         </StackPanel>
+        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="14,55,0,46" Name="dataGridCustomers" Width="575" ItemsSource="{Binding Path=LoadDataBinding}" CanUserResizeRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=ID}" Header="CustomerID" Width="100" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" Width="100" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=main_Adress}" Header="Address" Width="150" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=Tel}" Header="Tel" Width="100" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=Email}" Header="Email" Width="120" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

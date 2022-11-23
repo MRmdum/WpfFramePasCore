@@ -21,7 +21,6 @@
                 Click="HideButtonOnClick"
                 HorizontalAlignment="Left" Margin="433,216,0,0" VerticalAlignment="Top" Width="75"/>-->
         <local:UC1 DataContext="{Binding CurrentVM,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />
-        <Button Content="Button" HorizontalAlignment="Left" Margin="373,282,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
