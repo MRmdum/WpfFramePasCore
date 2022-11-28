@@ -43,9 +43,9 @@ namespace WpfFramePasCore.UserControl
         }
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
-            MyViewModel1 model1 = new MyViewModel1();
+            MyViewModel3 model1 = new MyViewModel3();
             MyViewModel2 model2 = new MyViewModel2();
-
+            
             model2.IsShown = false;
             model2.visibility = Visibility.Hidden;
 

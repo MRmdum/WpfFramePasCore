@@ -181,6 +181,7 @@
     </ApplicationDefinition>
     <Compile Include="UserControl\MyViewModel1.cs" />
     <Compile Include="UserControl\MyViewModel2.cs" />
+    <Compile Include="UserControl\MyViewModel3.cs" />
     <Compile Include="UserControl\NotifyObject.cs" />
     <Compile Include="UserControl\UC1.xaml.cs">
       <DependentUpon>UC1.xaml</DependentUpon>
@@ -190,6 +191,9 @@
     </Compile>
     <Compile Include="UserControl\UserControl2.xaml.cs">
       <DependentUpon>UserControl2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UserControl3.xaml.cs">
+      <DependentUpon>UserControl3.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\ViewModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -213,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\UserControl2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\UserControl3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

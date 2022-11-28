@@ -11,9 +11,9 @@ using System.ComponentModel;
 
 namespace WpfFramePasCore.UserControl
 {
-    class MyViewModel2 : NotifyObject
+    class MyViewModel3 : NotifyObject
     {
-        public MyViewModel2()
+        public MyViewModel3()
         {
             IsShown = false;
             visibility = Visibility.Hidden;
