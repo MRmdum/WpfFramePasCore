@@ -46,6 +46,7 @@ namespace WpfFramePasCore.UserControl
             MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
             mainWindow.DataContext = viewModel;
         }
+
         private void textChangedEventHandler(object sender, RoutedEventArgs e)
         {
             string server = "localhost";
@@ -65,19 +66,11 @@ namespace WpfFramePasCore.UserControl
                 string command = "Select Id,name,main_adress,tel,email from clients where name = 'test2ofofo';";
                 MySqlCommand cmd = new MySqlCommand(command, conn);
 
-                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet("clients");
+                DataTable customertable = new DataTable();
 
-                ///////
-                //MessageBox.Show(cmd.ToString());
-                //adp.SelectCommand = cmd;
-
-                //var build = new MySqlCommandBuilder(adp);
-                DataSet ds = new DataSet();
-
-                adp.Fill(ds, "LoadDataBinding");
-                //MessageBox.Show(ds.ToString());
-
-                dataGridCustomers.DataContext = ds;
+                customertable.Load(cmd.ExecuteReader());
+                dataGridCustomers.DataContext = customertable;                
 
             }
             catch (MySqlException ex)

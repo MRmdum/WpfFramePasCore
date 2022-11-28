@@ -14,14 +14,9 @@
             <TextBox Height="23" TextWrapping="Wrap" TextChanged="textChangedEventHandler"/>
             <Button Content="refreshDb" Width="120" Height="38" Click="textChangedEventHandler" Margin="600,-200,0,0" />
         </StackPanel>
-        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="14,55,0,46" Name="dataGridCustomers" Width="575" ItemsSource="{Binding Path=LoadDataBinding}" CanUserResizeRows="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=ID}" Header="CustomerID" Width="100" IsReadOnly="True" />
-                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" Width="100" IsReadOnly="True" />
-                <DataGridTextColumn Binding="{Binding Path=main_Adress}" Header="Address" Width="150" IsReadOnly="True" />
-                <DataGridTextColumn Binding="{Binding Path=Tel}" Header="Tel" Width="100" IsReadOnly="True" />
-                <DataGridTextColumn Binding="{Binding Path=Email}" Header="Email" Width="120" IsReadOnly="True" />
-            </DataGrid.Columns>
+        <DataGrid HorizontalAlignment="Left" Margin="14,55,0,46" 
+                  Name="dataGridCustomers" Width="575" 
+                  ItemsSource="{Binding}" >            
         </DataGrid>
     </Grid>
 </UserControl>
