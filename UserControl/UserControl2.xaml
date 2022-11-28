@@ -9,7 +9,10 @@
     <Grid>
         <StackPanel>
             <Label Content="New Client"></Label>
-            <TextBox Height="16" TextWrapping="Wrap" Margin="251,0,425,0"/>
+            <TextBox Height="16" TextWrapping="Wrap" 
+                     Name = "name2Search"
+                     TextChanged="textChangedEventHandler"
+                     Margin="251,0,425,0"/>
             <Button Content="Show" Width="120" Height="38" Click="Button_Click2" Margin="640,350,0,0" />
             <TextBox Height="23" TextWrapping="Wrap" TextChanged="textChangedEventHandler"/>
             <Button Content="refreshDb" Width="120" Height="38" Click="textChangedEventHandler" Margin="600,-200,0,0" />

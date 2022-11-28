@@ -25,6 +25,18 @@ namespace WpfFramePasCore.UserControl
     /// </summary>
     public partial class UserControl2
     {
+        static string server = "localhost";
+        static string database = "cookies";
+        static string user = "root";
+        static string password = "ABCD1234";
+        //string port = "3306";
+        static string connectionString = "server=" + server + ";" +
+                                    "uid=" + user + ";" +
+                                    "pwd=" + password + ";" +
+                                     "database=" + database + ";";
+
+        MySqlConnection conn = new MySqlConnection(connectionString);
+
         public UserControl2()
         {
             InitializeComponent();
@@ -49,21 +61,16 @@ namespace WpfFramePasCore.UserControl
 
         private void textChangedEventHandler(object sender, RoutedEventArgs e)
         {
-            string server = "localhost";
-            string database = "cookies";
-            string user = "root";
-            string password = "ABCD1234";
-            //string port = "3306";
-            string connectionString = "server=" + server + ";" +
-                                        "uid=" + user + ";" +
-                                        "pwd=" + password + ";" +
-                                         "database=" + database + ";";
-
-            MySqlConnection conn = new MySqlConnection(connectionString);
+            
             try
             {
                 conn.Open();
-                string command = "Select Id,name,main_adress,tel,email from clients where name = 'test2ofofo';";
+                string command;
+                if (name2Search.Text == null)
+                    command = "Select Id,name,main_adress,tel,email from clients;";
+               else
+                    command = "Select Id,name,main_adress,tel,email from clients where name = '"+ name2Search.Text +"';";
+
                 MySqlCommand cmd = new MySqlCommand(command, conn);
 
                 DataSet ds = new DataSet("clients");
